@@ -13,14 +13,11 @@ def hello():
 
 @app.route("/submit", methods=["POST"])
 def proxy():
-    data = request.form.to_dict()  # ВАЖНО: получаем как form-data
+    data = request.form.to_dict() 
+    print("Received from Tilda:", data)
     headers = {
         "Authorization": f"Bearer {INSPECTPOINT_API_KEY}",
         "Content-Type": "application/json"
     }
     response = requests.post(INSPECTPOINT_API_URL, headers=headers, json=data)
     return jsonify(response.json()), response.status_code
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
