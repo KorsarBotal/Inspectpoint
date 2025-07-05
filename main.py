@@ -20,4 +20,13 @@ def proxy():
         "Content-Type": "application/json"
     }
     response = requests.post(INSPECTPOINT_API_URL, headers=headers, json=data)
+
+print("InspectPoint response text:", response.text)
+
+try:
     return jsonify(response.json()), response.status_code
+except Exception as e:
+    return jsonify({
+        "error": "Invalid JSON response",
+        "text": response.text
+    }), response.status_code
