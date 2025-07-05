@@ -16,9 +16,9 @@ def proxy():
     data = request.form.to_dict() 
     print("Received from Tilda:", data)
     headers = {
-        "Authorization": f"Bearer {gBohTUH7C7eelWa3RCiUeOjcVtSJ8hOY}",
-        "Content-Type": "application/json"
-    }
+    "Authorization": f"Bearer {INSPECTPOINT_API_KEY}",
+    "Content-Type": "application/json"
+}
     response = requests.post(INSPECTPOINT_API_URL, headers=headers, json=data)
 
 print("InspectPoint response text:", response.text)
