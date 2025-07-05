@@ -3,8 +3,12 @@ import requests
 
 app = Flask(__name__)
 
-INSPECTPOINT_API_KEY = "gBohTUH7C7eelWa3RCiUeOjcVtSJ8hOY"
+INSPECTPOINT_API_KEY = "gBohTUH7C7eelWa3RCiUeOjcVtSJ8hOY"  # ключ
 INSPECTPOINT_API_URL = "https://api.inspectpoint.com/v2/inspections"
+
+@app.route("/", methods=["GET"])
+def hello():
+    return "Service is running!"
 
 @app.route("/submit", methods=["POST"])
 def proxy():
