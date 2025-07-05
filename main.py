@@ -19,6 +19,3 @@ def proxy():
     }
     response = requests.post(INSPECTPOINT_API_URL, headers=headers, json=data)
     return jsonify(response.json()), response.status_code
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
