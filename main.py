@@ -20,7 +20,6 @@ def proxy():
     "Content-Type": "application/json"
 }
     response = requests.post(INSPECTPOINT_API_URL, headers=headers, json=data)
-
 print("InspectPoint response text:", response.text)
 
 try:
